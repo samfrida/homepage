@@ -1,12 +1,28 @@
 
-text_top = open("/Users/samanthafrida/Desktop/Kickstart Coding/Homework 2/homepage/templates/top.html").read()
-text_bottom=open("/Users/samanthafrida/Desktop/Kickstart Coding/Homework 2/homepage/templates/bottom.html").read()
-text_index=open("/Users/samanthafrida/Desktop/Kickstart Coding/Homework 2/homepage/content/index.html").read()
 
-text_final = text_top + text_bottom + text_index
 
-path  = "/Users/samanthafrida/Desktop/Kickstart Coding/Homework 2/homepage/docs/index.html"
 
-open(path,"w+").write(text_final)
 
-#"docs/index.html"
+def main ():
+
+    pages = [ {"filename":"content/index.html","output":"docs/index.html","title":"About Me"},
+              {"filename":"content/index.html","output":"docs/blah_blah.html","title":"About Me"} ]
+
+    for page in pages:
+
+        text_top = open("templates/top.html").read()
+        text_bottom=open("templates/bottom.html").read()
+
+        text_content=open( page['filename'] ).read()
+
+        text_final = text_top + text_content + text_bottom
+
+        output_path  = page['output']
+
+        open(output_path,"w+").write(text_final)
+
+
+if __name__=="__main__":
+        main()
+
+

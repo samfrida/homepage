@@ -12,7 +12,7 @@ def apply_title (text, title):
     output = text.replace("{{title}}",title)
     return output
 
-
+james
 # Main Code
 def main ():
 
